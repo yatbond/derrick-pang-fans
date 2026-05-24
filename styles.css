@@ -1,0 +1,481 @@
+:root {
+  color-scheme: dark;
+  --ink: #f9efe7;
+  --muted: #cbb8a8;
+  --red: #c8192e;
+  --red-dark: #73111d;
+  --green: #234235;
+  --navy: #14233a;
+  --gold: #d9a441;
+  --paper: #fff7eb;
+  --panel: rgba(20, 35, 58, 0.82);
+  --line: rgba(255, 255, 255, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    linear-gradient(135deg, rgba(115, 17, 29, 0.62), rgba(20, 35, 58, 0.72)),
+    radial-gradient(circle at top left, rgba(217, 164, 65, 0.24), transparent 34rem),
+    #08111f;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem clamp(1rem, 4vw, 3.5rem);
+  background: rgba(8, 17, 31, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand,
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand {
+  font-weight: 800;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--red);
+  color: white;
+  box-shadow: inset 0 0 0 3px white;
+}
+
+nav {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+nav a:hover,
+.text-link:hover {
+  color: white;
+}
+
+.hero {
+  min-height: 78svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 5rem) 2rem;
+}
+
+.hero-copy {
+  max-width: 47rem;
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(3.2rem, 8vw, 7.4rem);
+  line-height: 0.9;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1;
+}
+
+h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.3rem;
+}
+
+.lead {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.hero-actions,
+.game-footer,
+.section-heading,
+footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.78rem 1.05rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button.primary,
+.button:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.button.small {
+  padding: 0.55rem 0.78rem;
+  font-size: 0.88rem;
+}
+
+.hero-media {
+  position: relative;
+  min-height: 35rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.34);
+}
+
+.scoreboard {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25rem 0.8rem;
+  min-width: 9rem;
+  padding: 0.9rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(35, 66, 53, 0.92);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.scoreboard strong {
+  color: var(--gold);
+}
+
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+  background: rgba(255, 247, 235, 0.08);
+}
+
+.stats-band article {
+  padding: 1.3rem clamp(1rem, 3vw, 2rem);
+  border-right: 1px solid var(--line);
+}
+
+.stats-band article:last-child {
+  border-right: 0;
+}
+
+.stats-band strong,
+.stats-band span {
+  display: block;
+}
+
+.stats-band span,
+.profile p,
+.sports p,
+.game-panel p,
+footer {
+  color: var(--muted);
+}
+
+.section {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 5rem);
+}
+
+.profile,
+.sports {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.profile p,
+.sports p {
+  max-width: 54rem;
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.section-heading {
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+
+.text-link {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.photo-grid,
+.video-grid,
+.games-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.photo-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 17rem;
+}
+
+.photo-card,
+.video-card,
+.game-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.photo-card {
+  position: relative;
+  margin: 0;
+  border-radius: 0.5rem;
+}
+
+.photo-card.tall {
+  grid-row: span 2;
+}
+
+.photo-card.wide {
+  grid-column: span 2;
+}
+
+.photo-card figcaption {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.7rem;
+  right: 0.7rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.35rem;
+  background: rgba(8, 17, 31, 0.76);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.sports {
+  background:
+    linear-gradient(90deg, rgba(200, 25, 46, 0.28), rgba(35, 66, 53, 0.18)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.teams span {
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-left: 0.45rem solid var(--red);
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 900;
+}
+
+.video-grid,
+.games-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.video-card {
+  border-radius: 0.5rem;
+}
+
+.video-card img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.video-card span {
+  display: block;
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.game-panel {
+  min-height: 26rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.field {
+  position: relative;
+  height: 15rem;
+  margin: 1rem 0;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.18) 49% 51%, transparent 52%),
+    radial-gradient(circle at bottom, #4f7f4b, #214d33 68%);
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  left: 48%;
+  top: 45%;
+  width: 2.6rem;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0.4rem 0 0 rgba(200, 25, 46, 0.8), 0 0.7rem 1.3rem rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.answers {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+
+.answers button,
+.memory-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.answers button {
+  padding: 0.85rem;
+  text-align: left;
+}
+
+.answers button.correct {
+  background: #2d7a47;
+}
+
+.answers button.wrong {
+  background: var(--red-dark);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.memory-card.matched,
+.memory-card.open {
+  background: var(--red);
+}
+
+.game-footer {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+footer {
+  justify-content: space-between;
+  padding: 1.4rem clamp(1rem, 5vw, 5rem);
+  border-top: 1px solid var(--line);
+  background: #08111f;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .profile,
+  .sports,
+  .video-grid,
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media {
+    min-height: 30rem;
+  }
+
+  .stats-band,
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header,
+  .section-heading,
+  .hero-actions,
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .photo-grid,
+  .stats-band,
+  .teams {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card.tall,
+  .photo-card.wide {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .photo-grid {
+    grid-auto-rows: 21rem;
+  }
+}
